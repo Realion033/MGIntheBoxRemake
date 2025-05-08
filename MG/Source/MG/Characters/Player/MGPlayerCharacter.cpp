@@ -104,7 +104,8 @@ void AMGPlayerCharacter::Fire(const FInputActionValue& Value)
 
 	UClass* LoadClass = ProjectileClass.LoadSynchronous();
 
-	FVector spawnLoaction = FollowCam->GetComponentLocation();
+	// FVector spawnLoaction = FollowCam->GetComponentLocation();
+	FVector spawnLoaction = GetMesh()	->GetSocketLocation("Muzzle_01");
 	FRotator spawnRotation = FollowCam->GetComponentRotation();
 	
 	GetWorld()->SpawnActor<AActor>(LoadClass, spawnLoaction, spawnRotation);

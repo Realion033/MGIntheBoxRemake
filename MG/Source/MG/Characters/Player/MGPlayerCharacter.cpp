@@ -100,7 +100,7 @@ void AMGPlayerCharacter::Movement(const FInputActionValue& Value)
 
 void AMGPlayerCharacter::Fire(const FInputActionValue& Value)
 {
-	UE_LOG(LogTemp, Log, TEXT("Fire!"));
+	// UE_LOG(LogTemp, Log, TEXT("Fire!"));
 
 	UClass* LoadClass = ProjectileClass.LoadSynchronous();
 
@@ -111,7 +111,7 @@ void AMGPlayerCharacter::Fire(const FInputActionValue& Value)
 	
 	GetWorld()->SpawnActor<AActor>(LoadClass, spawnLoaction, spawnRotation);
 }
-
+	
 void AMGPlayerCharacter::Aim(const FInputActionValue& Value)
 {
 	bUseControllerRotationYaw = true;

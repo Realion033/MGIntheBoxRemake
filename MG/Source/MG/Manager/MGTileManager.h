@@ -6,6 +6,14 @@
 #include "GameFramework/Actor.h"
 #include "MGTileManager.generated.h"
 
+USTRUCT()
+struct FTileRow
+{
+	GENERATED_BODY()
+	UPROPERTY()
+	TArray<AActor*> Row;
+};
+
 UCLASS()
 class MG_API AMGTileManager : public AActor
 {
@@ -22,8 +30,14 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	void Init();
+	
+private:
+	static const int32 MaxRows = 10;
+	static const int32 MaxCols = 10;
 private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> TileActorClass;
+	UPROPERTY(EditAnywhere)
+	TArray<FTileRow> Tiles;
 };
